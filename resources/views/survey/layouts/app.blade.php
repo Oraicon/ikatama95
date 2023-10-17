@@ -53,6 +53,10 @@
          max-width: 100%;
          padding-bottom: 10px;
       }
+
+      .sv-components-column--expandable {
+        background-color: white;
+      }
    </style>
    @stack('styles')
    @livewireStyles

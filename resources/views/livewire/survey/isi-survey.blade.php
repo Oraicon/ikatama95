@@ -12,13 +12,6 @@
    <script>
       $(document).ready(function() {
          initializeSurvey();
-
-         Swal.fire({
-            title: 'Error!',
-            text: 'Do you want to continue',
-            icon: 'error',
-            confirmButtonText: 'Cool'
-         })
       });
 
       const themeJson = {
@@ -117,635 +110,587 @@
       }
 
       function initializeSurvey() {
-         const surveyJson = {
-         "title": "ALUMNI AKPOL 95 'PATRIATAMA'",
-         "logoPosition": "right",
-         "pages": [
-         {
-            "name": "page1",
-            "elements": [
-            {
-            "type": "file",
-            "name": "foto_taruna",
-            "title": "FOTO TARUNA",
-            "hideNumber": true,
-            "isRequired": true,
-            "requiredErrorText": "File harus diisi",
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama",
-            "title": "NAMA (Gunakan huruf kapital)",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "text",
-            "name": "panggilan",
-            "title": "PANGGILAN",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "text",
-            "name": "tempat_lahir",
-            "title": "TEMPAT LAHIR",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "text",
-            "name": "tanggal_lahir",
-            "title": "TANGGAL LAHIR",
-            "hideNumber": true,
-            "isRequired": true,
-            "inputType": "date"
-            },
-            {
-            "type": "radiogroup",
-            "name": "pangkat",
-            "title": "PANGKAT",
-            "hideNumber": true,
-            "isRequired": true,
-            "choices": [
-               {
-               "value": "jendral_polisi",
-               "text": "JENDRAL POLISI"
-               },
-               {
-               "value": "komisaris_jendral_polisi",
-               "text": "KOMISARIS JENDRAL POLISI"
-               },
-               {
-               "value": "inspektur_jenderal_polisi",
-               "text": "INSPEKTUR JENDERAL POLISI"
-               },
-               {
-               "value": "brigadir_jenderal_polisi",
-               "text": "BRIGADIR JENDERAL POLISI"
-               },
-               {
-               "value": "komisaris_besar_polisi",
-               "text": "KOMISARIS BESAR POLISI"
-               },
-               {
-               "value": "ajun_komisaris_besar_polisi",
-               "text": "AJUN KOMISARIS BESAR POLISI"
-               },
-               {
-               "value": "komisaris_polisi",
-               "text": "KOMISARIS POLISI"
-               },
-               {
-               "value": "ajun_komisaris_polisi",
-               "text": "AJUN KOMISARIS POLISI"
-               },
-               {
-               "value": "inspektur_polisi_satu",
-               "text": "INSPEKTUR POLISI SATU"
-               },
-               {
-               "value": "inspektur_polisi_dua",
-               "text": "INSPEKTUR POLISI DUA"
-               },
-               {
-               "value": "lainnya",
-               "text": "Lainnya"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "pangkat_lainnya",
-            "visibleIf": "{pangkat} = 'lainnya'",
-            "title": "PANGKAT LAINNYA",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "text",
-            "name": "nrp",
-            "title": "NRP",
-            "hideNumber": true,
-            "isRequired": true,
-            "inputType": "number"
-            },
-            {
-            "type": "radiogroup",
-            "name": "status_kedinasan",
-            "title": "STATUS KEDINASAN",
-            "hideNumber": true,
-            "isRequired": true,
-            "choices": [
-               {
-               "value": "aktif",
-               "text": "Aktif"
-               },
-               {
-               "value": "tidak aktif",
-               "text": "Tidak Aktif"
-               },
-               {
-               "value": "lainnya",
-               "text": "Yang Lainnya"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "status_kedinasan_lainnya",
-            "visibleIf": "{status_kedinasan} = 'lainnya'",
-            "title": "STATUS KEDINASAN LAINNYA",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "radiogroup",
-            "name": "status_pernikahan",
-            "title": "STATUS PERNIKAHAN",
-            "hideNumber": true,
-            "isRequired": true,
-            "choices": [
-               {
-               "value": "kawin",
-               "text": "Kawin"
-               },
-               {
-               "value": "belum kawin",
-               "text": "Belum Kawin"
-               },
-               {
-               "value": "cerai hidup",
-               "text": "Cerai Hidup"
-               },
-               {
-               "value": "cerai mati",
-               "text": "Cerai Mati"
-               },
-               {
-               "value": "lainnya",
-               "text": "Yang Lainnya"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "status_pernikahan_lainnya",
-            "visibleIf": "{status_pernikahan} = 'lainnya'",
-            "title": "STATUS PERNIKAHAN LAINNYA",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "text",
-            "name": "jumlah_anak",
-            "title": "JUMLAH ANAK",
-            "hideNumber": true,
-            "isRequired": true,
-            "inputType": "number"
-            },
-            {
-            "type": "text",
-            "name": "telepon",
-            "title": "NO TELEPON",
-            "hideNumber": true,
-            "isRequired": true,
-            "inputType": "number"
-            },
-            {
-            "type": "text",
-            "name": "email",
-            "title": "EMAIL",
-            "hideNumber": true,
-            "isRequired": true,
-            "inputType": "email"
-            },
-            {
-            "type": "comment",
-            "name": "alamat",
-            "title": "ALAMAT",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "text",
-            "name": "question13",
-            "title": "MOTTO",
-            "hideNumber": true
-            },
-            {
-            "type": "file",
-            "name": "foto_terkini",
-            "title": "FOTO TERKINI",
-            "hideNumber": true,
-            "isRequired": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "narasi_online",
-            "title": "NARASI ONLINE",
-            "hideNumber": true,
-            "isRequired": true
-            }
-            ]
-         },
-         {
-            "name": "page2",
-            "elements": [
-            {
-            "type": "file",
-            "name": "foto_keluarga",
-            "title": "FOTO KELUARGA",
-            "hideNumber": true,
-            "isRequired": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "narasi_keluarga",
-            "title": "NARASI KELUARGA",
-            "hideNumber": true,
-            "isRequired": true
-            },
-            {
-            "type": "file",
-            "name": "foto_anak_pertama",
-            "title": "FOTO ANAK PERTAMA",
-            "hideNumber": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama_anak_pertama",
-            "title": "NAMA ANAK PERTAMA (Gunakan huruf kapital)",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tempat_lahir_anak_pertama",
-            "title": "TEMPAT LAHIR ANAK PERTAMA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tanggal_lahir_anak_pertama",
-            "title": "TANGGAL LAHIR ANAK PERTAMA",
-            "hideNumber": true,
-            "inputType": "date"
-            },
-            {
-            "type": "radiogroup",
-            "name": "jenis_kelamin_anak_pertama",
-            "title": "JENIS KELAMIN ANAK PERTAMA",
-            "hideNumber": true,
-            "choices": [
-               {
-               "value": "Item 1",
-               "text": "LAKI-LAKI"
-               },
-               {
-               "value": "Item 11",
-               "text": "PEREMPUAN"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "pekerjaan_anak_pertama",
-            "title": "PEKERJAAN ANAK PERTAMA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "alamat_anak_pertama",
-            "title": "ALAMAT ANAK PERTAMA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "motto_anak_pertama",
-            "title": "MOTTO ANAK PERTAMA",
-            "hideNumber": true
-            },
-            {
-            "type": "file",
-            "name": "foto_anak_kedua",
-            "title": "FOTO ANAK KEDUA",
-            "hideNumber": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama_anak_kedua",
-            "title": "NAMA ANAK KEDUA (Gunakan huruf kapital)",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tempat_lahir_anak_kedua",
-            "title": "TEMPAT LAHIR ANAK KEDUA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tanggal_lahir_anak_kedua",
-            "title": "TANGGAL LAHIR ANAK KEDUA",
-            "hideNumber": true,
-            "inputType": "date"
-            },
-            {
-            "type": "radiogroup",
-            "name": "jenis_kelamin_anak_kedua",
-            "title": "JENIS KELAMIN ANAK KEDUA",
-            "hideNumber": true,
-            "choices": [
-               {
-               "value": "Item 1",
-               "text": "LAKI-LAKI"
-               },
-               {
-               "value": "Item 11",
-               "text": "PEREMPUAN"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "pekerjaan_anak_kedua",
-            "title": "PEKERJAAN ANAK KEDUA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "alamat_anak_kedua",
-            "title": "ALAMAT ANAK KEDUA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "motto_anak_kedua",
-            "title": "MOTTO ANAK KEDUA",
-            "hideNumber": true
-            },
-            {
-            "type": "file",
-            "name": "foto_anak_ketiga",
-            "title": "FOTO ANAK KETIGA",
-            "hideNumber": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama_anak_ketiga",
-            "title": "NAMA ANAK KETIGA (Gunakan huruf kapital)",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tempat_lahir_anak_ketiga",
-            "title": "TEMPAT LAHIR ANAK KETIGA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tanggal_lahir_anak_ketiga",
-            "title": "TANGGAL LAHIR ANAK KETIGA",
-            "hideNumber": true,
-            "inputType": "date"
-            },
-            {
-            "type": "radiogroup",
-            "name": "jenis_kelamin_anak_ketiga",
-            "title": "JENIS KELAMIN ANAK KETIGA",
-            "hideNumber": true,
-            "choices": [
-               {
-               "value": "Item 1",
-               "text": "LAKI-LAKI"
-               },
-               {
-               "value": "Item 11",
-               "text": "PEREMPUAN"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "pekerjaan_anak_ketiga",
-            "title": "PEKERJAAN ANAK KETIGA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "alamat_anak_ketiga",
-            "title": "ALAMAT ANAK KETIGA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "motto_anak_ketiga",
-            "title": "MOTTO ANAK KETIGA",
-            "hideNumber": true
-            },
-            {
-            "type": "file",
-            "name": "foto_anak_keempat",
-            "title": "FOTO ANAK KEEMPAT",
-            "hideNumber": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 200000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama_anak_keempat",
-            "title": "NAMA ANAK KEEMPAT (Gunakan huruf kapital)",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tempat_lahir_anak_keempat",
-            "title": "TEMPAT LAHIR ANAK KEEMPAT",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tanggal_lahir_anak_keempat",
-            "title": "TANGGAL LAHIR ANAK KEEMPAT",
-            "hideNumber": true,
-            "inputType": "date"
-            },
-            {
-            "type": "radiogroup",
-            "name": "jenis_kelamin_anak_keempat",
-            "title": "JENIS KELAMIN ANAK KEEMPAT",
-            "hideNumber": true,
-            "choices": [
-               {
-               "value": "Item 1",
-               "text": "LAKI-LAKI"
-               },
-               {
-               "value": "Item 11",
-               "text": "PEREMPUAN"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "alamat_anak_keempat",
-            "title": "ALAMAT ANAK KEEMPAT",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "pekerjaan_anak_keempat",
-            "title": "PEKERJAAN ANAK KEEMPAT",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "motto_anak_keempat",
-            "title": "MOTTO ANAK KEEMPAT",
-            "hideNumber": true
-            },
-            {
-            "type": "file",
-            "name": "foto_anak_kelima",
-            "title": "FOTO ANAK KELIMA",
-            "hideNumber": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama_anak_kelima",
-            "title": "NAMA ANAK KELIMA (Gunakan huruf kapital)",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tempat_lahir_anak_kelima",
-            "title": "TEMPAT LAHIR ANAK KELIMA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "tanggal_lahir_anak_kelima",
-            "title": "TANGGAL LAHIR ANAK KELIMA",
-            "hideNumber": true,
-            "inputType": "date"
-            },
-            {
-            "type": "radiogroup",
-            "name": "question1",
-            "title": "JENIS KELAMIN ANAK KELIMA",
-            "hideNumber": true,
-            "choices": [
-               {
-               "value": "Item 1",
-               "text": "LAKI-LAKI"
-               },
-               {
-               "value": "Item 11",
-               "text": "PEREMPUAN"
-               }
-            ]
-            },
-            {
-            "type": "text",
-            "name": "pekerjaan_anak_kelima",
-            "title": "PEKERJAAN ANAK KELIMA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "alamat_anak_kelima",
-            "title": "ALAMAT ANAK KELIMA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "motto_anak_kelima",
-            "title": "MOTTO ANAK KELIMA",
-            "hideNumber": true
-            }
-            ],
-            "title": "DATA KELUARGA"
-         },
-         {
-            "name": "page3",
-            "elements": [
-            {
-            "type": "file",
-            "name": "foto_bakti_akpol",
-            "title": "FOTO BAKTI AKPOL",
-            "hideNumber": true,
-            "allowMultiple": true,
-            "acceptedTypes": ".jpg",
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama_bakti",
-            "title": "NAMA BAKTI",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "narasi_bakti_akpol",
-            "title": "NARASI BAKTI AKPOL 95",
-            "hideNumber": true
-            },
-            {
-            "type": "file",
-            "name": "foto_berkarya_patriatama",
-            "title": "FOTO BERKARYA UNTUK PATRIATAMA",
-            "hideNumber": true,
-            "allowMultiple": true,
-            "waitForUpload": true,
-            "maxSize": 2000000,
-            "needConfirmRemoveFile": true
-            },
-            {
-            "type": "text",
-            "name": "nama_karya",
-            "title": "NAMA KARYA",
-            "hideNumber": true
-            },
-            {
-            "type": "text",
-            "name": "narasi_berkarya_untuk_patriatama",
-            "title": "NARASI BERKARYA UNTUK PATRIATAMA",
-            "hideNumber": true
-            }
-            ]
-         }
+        const surveyJson = {
+            "title": "ALUMNI AKPOL 95 'PATRIATAMA'",
+            // "completedHtml": '<div class="d-flex justify-content-center"> <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span> </div> </div>',
+            // "loadingHtml": '<div class="d-flex justify-content-center"> <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span> </div> </div>',
+            "logoPosition": "center",
+            "pages": [
+                {
+                    "name": "page1",
+                    "elements": [
+                        {
+                        "type": "file",
+                        "name": "foto_taruna",
+                        "title": "FOTO TARUNA",
+                        "hideNumber": true,
+                        "isRequired": true,
+                        "requiredErrorText": "File harus diisi",
+                        "acceptedTypes": ".jpg",
+                        "waitForUpload": true,
+                        "maxSize": 2000000,
+                        "needConfirmRemoveFile": true
+                    },
+                    {
+                        "type": "text",
+                        "name": "nama",
+                        "title": "NAMA (Gunakan huruf kapital)",
+                        "hideNumber": true,
+                        "isRequired": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "panggilan",
+                    "title": "PANGGILAN",
+                    "hideNumber": true,
+                    "isRequired": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tempat_lahir",
+                    "title": "TEMPAT LAHIR",
+                    "hideNumber": true,
+                    "isRequired": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tanggal_lahir",
+                    "title": "TANGGAL LAHIR",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "inputType": "date"
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "pangkat",
+                    "title": "PANGKAT",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "choices": [
+                    {
+                    "value": "jendral_polisi",
+                    "text": "JENDRAL POLISI"
+                    },
+                    {
+                    "value": "komisaris_jendral_polisi",
+                    "text": "KOMISARIS JENDRAL POLISI"
+                    },
+                    {
+                    "value": "inspektur_jenderal_polisi",
+                    "text": "INSPEKTUR JENDERAL POLISI"
+                    },
+                    {
+                    "value": "brigadir_jenderal_polisi",
+                    "text": "BRIGADIR JENDERAL POLISI"
+                    },
+                    {
+                    "value": "komisaris_besar_polisi",
+                    "text": "KOMISARIS BESAR POLISI"
+                    },
+                    {
+                    "value": "ajun_komisaris_besar_polisi",
+                    "text": "AJUN KOMISARIS BESAR POLISI"
+                    },
+                    {
+                    "value": "komisaris_polisi",
+                    "text": "KOMISARIS POLISI"
+                    },
+                    {
+                    "value": "ajun_komisaris_polisi",
+                    "text": "AJUN KOMISARIS POLISI"
+                    },
+                    {
+                    "value": "inspektur_polisi_satu",
+                    "text": "INSPEKTUR POLISI SATU"
+                    },
+                    {
+                    "value": "inspektur_polisi_dua",
+                    "text": "INSPEKTUR POLISI DUA"
+                    },
+                    {
+                    "value": "lainnya",
+                    "text": "Lainnya"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "pangkat_lainnya",
+                    "visibleIf": "{pangkat} = 'lainnya'",
+                    "title": "PANGKAT LAINNYA",
+                    "hideNumber": true,
+                    "isRequired": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "nrp",
+                    "title": "NRP",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "inputType": "number"
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "status_kedinasan",
+                    "title": "STATUS KEDINASAN",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "choices": [
+                    {
+                    "value": "aktif",
+                    "text": "Aktif"
+                    },
+                    {
+                    "value": "tidak aktif",
+                    "text": "Tidak Aktif"
+                    },
+                    {
+                    "value": "lainnya",
+                    "text": "Yang Lainnya"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "status_kedinasan_lainnya",
+                    "visibleIf": "{status_kedinasan} = 'lainnya'",
+                    "title": "STATUS KEDINASAN LAINNYA",
+                    "hideNumber": true,
+                    "isRequired": true
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "status_pernikahan",
+                    "title": "STATUS PERNIKAHAN",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "choices": [
+                    {
+                    "value": "kawin",
+                    "text": "Kawin"
+                    },
+                    {
+                    "value": "belum kawin",
+                    "text": "Belum Kawin"
+                    },
+                    {
+                    "value": "cerai hidup",
+                    "text": "Cerai Hidup"
+                    },
+                    {
+                    "value": "cerai mati",
+                    "text": "Cerai Mati"
+                    },
+                    {
+                    "value": "lainnya",
+                    "text": "Yang Lainnya"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "status_pernikahan_lainnya",
+                    "visibleIf": "{status_pernikahan} = 'lainnya'",
+                    "title": "STATUS PERNIKAHAN LAINNYA",
+                    "hideNumber": true,
+                    "isRequired": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "jumlah_anak",
+                    "title": "JUMLAH ANAK",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "inputType": "number"
+                    },
+                    {
+                    "type": "text",
+                    "name": "telepon",
+                    "title": "NO TELEPON",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "inputType": "number"
+                    },
+                    {
+                    "type": "text",
+                    "name": "email",
+                    "title": "EMAIL",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "inputType": "email"
+                    },
+                    {
+                    "type": "comment",
+                    "name": "alamat",
+                    "title": "ALAMAT",
+                    "hideNumber": true,
+                    "isRequired": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "question13",
+                    "title": "MOTTO",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "file",
+                    "name": "foto_terkini",
+                    "title": "FOTO TERKINI",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "acceptedTypes": ".jpg",
+                    "waitForUpload": true,
+                    "maxSize": 2000000,
+                    "needConfirmRemoveFile": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "narasi_online",
+                    "title": "NARASI ONLINE",
+                    "hideNumber": true,
+                    "isRequired": true
+                    }
+                    ]
+                },
+                {
+                    "name": "page2",
+                    "elements": [
+                    {
+                    "type": "file",
+                    "name": "foto_keluarga",
+                    "title": "FOTO KELUARGA",
+                    "hideNumber": true,
+                    "isRequired": true,
+                    "acceptedTypes": ".jpg",
+                    "waitForUpload": true,
+                    "maxSize": 2000000,
+                    "needConfirmRemoveFile": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "narasi_keluarga",
+                    "title": "NARASI KELUARGA",
+                    "hideNumber": true,
+                    "isRequired": true
+                    },
+                    {
+                    "type": "file",
+                    "name": "foto_anak_pertama",
+                    "title": "FOTO ANAK PERTAMA",
+                    "hideNumber": true,
+                    "acceptedTypes": ".jpg",
+                    "waitForUpload": true,
+                    "maxSize": 2000000,
+                    "needConfirmRemoveFile": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "nama_anak_pertama",
+                    "title": "NAMA ANAK PERTAMA (Gunakan huruf kapital)",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tempat_lahir_anak_pertama",
+                    "title": "TEMPAT LAHIR ANAK PERTAMA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tanggal_lahir_anak_pertama",
+                    "title": "TANGGAL LAHIR ANAK PERTAMA",
+                    "hideNumber": true,
+                    "inputType": "date"
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "jenis_kelamin_anak_pertama",
+                    "title": "JENIS KELAMIN ANAK PERTAMA",
+                    "hideNumber": true,
+                    "choices": [
+                    {
+                    "value": "Item 1",
+                    "text": "LAKI-LAKI"
+                    },
+                    {
+                    "value": "Item 11",
+                    "text": "PEREMPUAN"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "pekerjaan_anak_pertama",
+                    "title": "PEKERJAAN ANAK PERTAMA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "alamat_anak_pertama",
+                    "title": "ALAMAT ANAK PERTAMA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "motto_anak_pertama",
+                    "title": "MOTTO ANAK PERTAMA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "file",
+                    "name": "foto_anak_kedua",
+                    "title": "FOTO ANAK KEDUA",
+                    "hideNumber": true,
+                    "acceptedTypes": ".jpg",
+                    "waitForUpload": true,
+                    "maxSize": 2000000,
+                    "needConfirmRemoveFile": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "nama_anak_kedua",
+                    "title": "NAMA ANAK KEDUA (Gunakan huruf kapital)",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tempat_lahir_anak_kedua",
+                    "title": "TEMPAT LAHIR ANAK KEDUA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tanggal_lahir_anak_kedua",
+                    "title": "TANGGAL LAHIR ANAK KEDUA",
+                    "hideNumber": true,
+                    "inputType": "date"
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "jenis_kelamin_anak_kedua",
+                    "title": "JENIS KELAMIN ANAK KEDUA",
+                    "hideNumber": true,
+                    "choices": [
+                    {
+                    "value": "Item 1",
+                    "text": "LAKI-LAKI"
+                    },
+                    {
+                    "value": "Item 11",
+                    "text": "PEREMPUAN"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "pekerjaan_anak_kedua",
+                    "title": "PEKERJAAN ANAK KEDUA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "alamat_anak_kedua",
+                    "title": "ALAMAT ANAK KEDUA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "motto_anak_kedua",
+                    "title": "MOTTO ANAK KEDUA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "file",
+                    "name": "foto_anak_ketiga",
+                    "title": "FOTO ANAK KETIGA",
+                    "hideNumber": true,
+                    "acceptedTypes": ".jpg",
+                    "waitForUpload": true,
+                    "maxSize": 2000000,
+                    "needConfirmRemoveFile": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "nama_anak_ketiga",
+                    "title": "NAMA ANAK KETIGA (Gunakan huruf kapital)",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tempat_lahir_anak_ketiga",
+                    "title": "TEMPAT LAHIR ANAK KETIGA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tanggal_lahir_anak_ketiga",
+                    "title": "TANGGAL LAHIR ANAK KETIGA",
+                    "hideNumber": true,
+                    "inputType": "date"
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "jenis_kelamin_anak_ketiga",
+                    "title": "JENIS KELAMIN ANAK KETIGA",
+                    "hideNumber": true,
+                    "choices": [
+                    {
+                    "value": "Item 1",
+                    "text": "LAKI-LAKI"
+                    },
+                    {
+                    "value": "Item 11",
+                    "text": "PEREMPUAN"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "pekerjaan_anak_ketiga",
+                    "title": "PEKERJAAN ANAK KETIGA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "alamat_anak_ketiga",
+                    "title": "ALAMAT ANAK KETIGA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "motto_anak_ketiga",
+                    "title": "MOTTO ANAK KETIGA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "file",
+                    "name": "foto_anak_keempat",
+                    "title": "FOTO ANAK KEEMPAT",
+                    "hideNumber": true,
+                    "acceptedTypes": ".jpg",
+                    "waitForUpload": true,
+                    "maxSize": 200000,
+                    "needConfirmRemoveFile": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "nama_anak_keempat",
+                    "title": "NAMA ANAK KEEMPAT (Gunakan huruf kapital)",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tempat_lahir_anak_keempat",
+                    "title": "TEMPAT LAHIR ANAK KEEMPAT",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tanggal_lahir_anak_keempat",
+                    "title": "TANGGAL LAHIR ANAK KEEMPAT",
+                    "hideNumber": true,
+                    "inputType": "date"
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "jenis_kelamin_anak_keempat",
+                    "title": "JENIS KELAMIN ANAK KEEMPAT",
+                    "hideNumber": true,
+                    "choices": [
+                    {
+                    "value": "Item 1",
+                    "text": "LAKI-LAKI"
+                    },
+                    {
+                    "value": "Item 11",
+                    "text": "PEREMPUAN"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "alamat_anak_keempat",
+                    "title": "ALAMAT ANAK KEEMPAT",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "pekerjaan_anak_keempat",
+                    "title": "PEKERJAAN ANAK KEEMPAT",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "motto_anak_keempat",
+                    "title": "MOTTO ANAK KEEMPAT",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "file",
+                    "name": "foto_anak_kelima",
+                    "title": "FOTO ANAK KELIMA",
+                    "hideNumber": true,
+                    "acceptedTypes": ".jpg",
+                    "waitForUpload": true,
+                    "maxSize": 2000000,
+                    "needConfirmRemoveFile": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "nama_anak_kelima",
+                    "title": "NAMA ANAK KELIMA (Gunakan huruf kapital)",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tempat_lahir_anak_kelima",
+                    "title": "TEMPAT LAHIR ANAK KELIMA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "tanggal_lahir_anak_kelima",
+                    "title": "TANGGAL LAHIR ANAK KELIMA",
+                    "hideNumber": true,
+                    "inputType": "date"
+                    },
+                    {
+                    "type": "radiogroup",
+                    "name": "question1",
+                    "title": "JENIS KELAMIN ANAK KELIMA",
+                    "hideNumber": true,
+                    "choices": [
+                    {
+                    "value": "Item 1",
+                    "text": "LAKI-LAKI"
+                    },
+                    {
+                    "value": "Item 11",
+                    "text": "PEREMPUAN"
+                    }
+                    ]
+                    },
+                    {
+                    "type": "text",
+                    "name": "pekerjaan_anak_kelima",
+                    "title": "PEKERJAAN ANAK KELIMA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "alamat_anak_kelima",
+                    "title": "ALAMAT ANAK KELIMA",
+                    "hideNumber": true
+                    },
+                    {
+                    "type": "text",
+                    "name": "motto_anak_kelima",
+                    "title": "MOTTO ANAK KELIMA",
+                    "hideNumber": true
+                    }
+                    ],
+                    "title": "DATA KELUARGA"
+                },
          ]}
 
          const survey = new Survey.Model(surveyJson);
@@ -753,7 +698,7 @@
          survey.applyTheme(themeJson);
          function alertResults(sender) {
             const results = JSON.stringify(sender.data);
-            alert(results);
+            menyimpan_data(results);
          }
 
          survey.onComplete.add(alertResults);
@@ -761,6 +706,23 @@
          $("#surveyContainer").Survey({
             model: survey
          });
+      }
+
+      function menyimpan_data(data_json) {
+        var data_hasil_formulir = JSON.parse(data_json);
+
+        $.ajax({
+            type: "POST",
+            url: "/api/simpan_formulir", // Use the correct URL
+            data: JSON.stringify(data_hasil_formulir),
+            contentType: "application/json",
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log("Error:", textStatus, errorThrown);
+            }
+        });
       }
    </script>
 @endpush
